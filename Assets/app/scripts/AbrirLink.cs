@@ -2,9 +2,17 @@ using UnityEngine;
 
 public class AbrirLink : MonoBehaviour
 {
-    public void AbrirPagina()
+    // Isso permite que você digite o link direto no componente do Botão
+    public void AbrirPagina(string url)
     {
-        string url = "https://pt.scribd.com/document/715065182/Enem-2023-grade-de-correc-a-o";
-        Application.OpenURL(url);
+        if (!string.IsNullOrEmpty(url))
+        {
+            Application.OpenURL(url);
+            Debug.Log("Abrindo link: " + url);
+        }
+        else
+        {
+            Debug.LogWarning("O link passado está vazio!");
+        }
     }
 }
